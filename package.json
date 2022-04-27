@@ -1,15 +1,30 @@
 {
   "name": "videoinfo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.3",
+  "description": "video viewer",
+  "main": "src/index.js",
   "scripts": {
     "start": "electron .",
+    "build": "node ./bin/build.js",
+    "release": "electron-builder -c electron-builder.json -p onTag",
+    "clean": "rm -rf ./dest",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "chend0316",
   "license": "MIT",
   "dependencies": {
-    "electron": "^18.0.3"
+    "electron-log": "^4.4.6",
+    "electron-updater": "^5.0.1",
+    "fluent-ffmpeg": "^2.1.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0",
+    "electron": "17.4.0",
+    "electron-builder": "^23.0.3",
+    "electron-notarize": "^1.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chend0316/videoinfo.git"
   }
 }

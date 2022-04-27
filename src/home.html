@@ -1,0 +1,18 @@
+<body>
+  video info
+  <form>
+    <label for="">select a video</label>
+    <input type="file" accept="video/*" />
+    <button type="submit">Get Info</button>
+    <div id="messages"></div>
+  </form>
+  <script src="./home.js"></script>
+  <script>
+    ipcRenderer.on('message', function (event, text) {
+      var container = document.getElementById('messages');
+      var message = document.createElement('div');
+      message.innerHTML = text;
+      container.appendChild(message);
+    })
+  </script>
+</body>
