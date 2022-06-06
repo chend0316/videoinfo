@@ -1,0 +1,6 @@
+{
+  "name": "videoinfo-daemon",
+  "scripts": {
+    "build": "sh build.sh"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "node-ffmpeg",
+  "version": "0.0.1",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha --require should --reporter spec"
+  },
+  "dependencies": {
+    "node-ffmpeg": "*",
+    "which": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/which": "^2.0.1",
+    "lerna": "^5.0.0",
+    "mocha": "^10.0.0",
+    "should": "^13.2.3",
+    "typescript": "^4.7.3"
+  }
+}

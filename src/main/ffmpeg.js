@@ -5,10 +5,14 @@ const { makeLogger } = require('./logger')
 const logger = makeLogger('video')
 
 module.exports = {
-  initVideo() {
+  init({ mainWindow }) {
     ipcMain.on('video:submit', (event, path) => {
       ffmpeg.ffprobe(path, (err, metadata) => {
         logger.info(`Video duration is:`, metadata.format.duration)
+        mainWindow.webContents.send(
+          'video:metadata',
+          metadata.format.duration
+        )
       })
     })
   }
