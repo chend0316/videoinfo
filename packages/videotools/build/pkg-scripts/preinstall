@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -e "/Library/LaunchDaemons/io.github.chend0316.videotools.daemon.plist" ]; then
+  launchctl unload /Library/LaunchDaemons/io.github.chend0316.videotools.daemon.plist
+  ret=$?
+  echo "stop daemon ret = $ret"
+fi
+
+exit 0

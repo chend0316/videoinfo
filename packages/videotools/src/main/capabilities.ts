@@ -1,6 +1,6 @@
-const { ipcMain } = require('electron')
-const { Ffmpeg } = require('node-ffmpeg')
-const { makeLogger } = require('./logger')
+import { ipcMain } from 'electron'
+import { Ffmpeg } from 'node-ffmpeg'
+import { makeLogger } from './logger'
 
 const logger = makeLogger('capabilities')
 

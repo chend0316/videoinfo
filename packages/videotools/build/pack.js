@@ -9,10 +9,14 @@ builder.build(
   {
     targets: builder.Platform.MAC.createTarget(),
     config: {
-      appId: "io.github.chend0316.videoinfo",
+      appId: "io.github.chend0316.videotools",
+      directories: {
+        // buildResources: 'resources',
+        output: './electron-dist',
+      },
       mac: {
-        target: ['dmg', 'zip', 'pkg'],
-        // target: ['dmg'],
+        // target: ['dmg', 'zip', 'pkg'],
+        target: ['pkg'],
         hardenedRuntime: true,
         category: "public.app-category.developer-tools",
         entitlements: "build/entitlements.mac.plist",
@@ -20,8 +24,8 @@ builder.build(
         publish: ['github'],
         extraFiles: [
           {
-            from: './packages/videoinfo-daemon/dist/videoinfo-daemon',
-            to: 'MacOS/1videoinfo-daemon',
+            from: '../videotools-daemon/dist/videotools-daemon',
+            to: 'MacOS/1videotools-daemon',
           }
         ],
         extraResources: [
@@ -29,7 +33,10 @@ builder.build(
             from: './build/resources/cn.InfoPlist.strings',
             to: 'zh_CN.lproj/InfoPlist.strings',
           }
-        ]
+        ],
+      },
+      pkg: {
+        scripts: 'pkg-scripts',
       },
       afterSign: async (ctx) => {
         await notarizeMac(ctx)
@@ -75,7 +82,7 @@ async function notarizeMac(context) {
   const appName = context.packager.appInfo.productFilename;
 
   return await notarize({
-    appBundleId: 'io.github.chend0316.videoinfo',
+    appBundleId: 'io.github.chend0316.videotools',
     appPath: `${appOutDir}/${appName}.app`,
     appleId,
     appleIdPassword,
