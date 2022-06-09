@@ -8,6 +8,6 @@ echo "start daemon ret = $ret"
 
 sleep 3
 
-open /Applications/videotools.app --args autostart
+open /Applications/videotools.app --args open-by-installer
 
 exit 0

@@ -1,4 +1,4 @@
-import { availableEncoders, _getFfmpegPath } from "./capabilities";
+import { availableCodecs, availableEncoders, availableFilters, availableFormats, _getFfmpegPath } from "./capabilities";
 import {spawn} from "child_process";
 
 var nlRegexp = /\r\n|\r|\n/g;
@@ -6,10 +6,13 @@ var streamRegexp = /^\[?(.*?)\]?$/;
 var filterEscapeRegexp = /[,]/;
 
 export class Ffmpeg {
+  availableCodecs = availableCodecs;
   availableEncoders = availableEncoders;
+  availableFilters = availableFilters;
+  availableFormats = availableFormats;
   private _getFfmpegPath = _getFfmpegPath;
 
-  protected _spawnFfmpeg(args: string[], options: {captureStdout: boolean; stdoutLines: number}, processCB?): Promise<{stdout: any; stderr: any}> {
+  protected _spawnFfmpeg(args: string[], options: {captureStdout: boolean; stdoutLines: number}, processCB?): Promise<{stdout: string[]; stderr: string[]}> {
     if (typeof processCB === 'undefined') {
       processCB = function() {};
     }

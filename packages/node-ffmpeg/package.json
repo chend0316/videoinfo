@@ -4,7 +4,9 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "mocha --require should --reporter spec"
+    "build:watch": "tsc -w",
+    "test": "mocha --require should --reporter spec",
+    "test:watch": "mocha --require should --reporter spec --watch"
   },
   "dependencies": {
     "which": "^2.0.1"
