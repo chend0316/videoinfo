@@ -1,6 +1,6 @@
-import ffmpeg from 'fluent-ffmpeg'
+import * as ffmpeg from 'fluent-ffmpeg'
 import { IpcKeys, registerIpcHandler } from 'electron-ipc-service'
-import  { makeLogger } from './logger'
+import { makeLogger } from './logger'
 
 const logger = makeLogger('video')
 

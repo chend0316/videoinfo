@@ -14,7 +14,7 @@ const menuTemplate = [
   {
     label: 'File',
   },
-]
+];
 
 let mainWindow;
 app.on('ready', () => {
@@ -27,13 +27,13 @@ app.on('ready', () => {
       contextIsolation: false,
       preload: path.join(__dirname, '../renderer/preload.js'),
     },
-  })
-  mainWindow.loadFile('./dist/renderer/home.html')
-  mainWindow.webContents.openDevTools()
-  ffmpeg.init({ mainWindow })
+  });
+  mainWindow.loadFile('./dist/renderer/home.html');
+  mainWindow.webContents.openDevTools();
+  ffmpeg.init({ mainWindow });
   // initUpdater({ mainWindow })
   // menu.init()
-  require('@electron/remote/main').initialize()
-  require('@electron/remote/main').enable(mainWindow.webContents)
-  capabilities.init()
-})
+  require('@electron/remote/main').initialize();
+  require('@electron/remote/main').enable(mainWindow.webContents);
+  capabilities.init();
+});
