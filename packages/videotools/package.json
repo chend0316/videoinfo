@@ -6,7 +6,9 @@
   "main": "dist/main/index.js",
   "scripts": {
     "start": "electron .",
-    "build": "tsc",
+    "build": "npm run build:main && npm run build:renderer",
+    "build:main": "tsc -p tsconfig.main.json",
+    "build:renderer": "webpack && cp ./src/renderer/*.html ./dist/renderer/",
     "pack": "node ./build/pack.js",
     "publish": "npm run build && NEED_NOTARIZE=true NEED_PUBLISH=true node ./build/pack.js",
     "clean": "rm -rf ./dist",
@@ -16,6 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "@electron/remote": "^2.0.8",
+    "electron-ipc-service": "*",
     "electron-log": "^4.4.6",
     "electron-updater": "^5.0.1",
     "fluent-ffmpeg": "^2.1.2",
@@ -27,8 +30,12 @@
     "electron": "17.4.0",
     "electron-builder": "^23.0.3",
     "electron-notarize": "^1.2.1",
+    "eslint": "^8.17.0",
+    "ts-loader": "^9.3.0",
     "ts-node": "^10.8.1",
-    "typescript": "^4.7.3"
+    "typescript": "^4.7.3",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.9.2"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,5 @@
 const { ipcRenderer } = require('electron');
 
 ipcRenderer.invoke('capabilities:availableEncoders').then(encoders => {
-  console.log(encoders)
-})
+  console.log(encoders);
+});

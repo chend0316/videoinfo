@@ -28,9 +28,9 @@ app.on('ready', () => {
       preload: path.join(__dirname, '../renderer/preload.js'),
     },
   })
-  mainWindow.loadFile('./src/renderer/home.html')
+  mainWindow.loadFile('./dist/renderer/home.html')
   mainWindow.webContents.openDevTools()
-  // ffmpeg.init({ mainWindow })
+  ffmpeg.init({ mainWindow })
   // initUpdater({ mainWindow })
   // menu.init()
   require('@electron/remote/main').initialize()

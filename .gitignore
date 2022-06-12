@@ -4,4 +4,3 @@ dist/
 electron-dist/
 yarn.lock
 .env
-.vscode

@@ -1,10 +1,11 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["src/**/*"],
+  "include": ["src/renderer/**/*"],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "src",
+    "module": "es6",
+    "outDir": "dist/renderer",
+    "rootDir": "src/renderer",
     "declaration": false,
   }
 }
