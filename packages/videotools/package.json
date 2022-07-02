@@ -9,7 +9,8 @@
     "build": "npm run build:main && npm run build:renderer",
     "build:main": "tsc -p tsconfig.main.json",
     "build:renderer": "webpack && cp ./src/renderer/*.html ./dist/renderer/",
-    "pack": "node ./build/pack.js",
+    "pack": "rm -rf ./electron-builder-dist && node ./electron-builder/pack.js",
+    "mypack": "rm -rf ./my-builder-dist && node ./my-builder/pack.js",
     "publish": "npm run build && NEED_NOTARIZE=true NEED_PUBLISH=true node ./build/pack.js",
     "clean": "rm -rf ./dist",
     "test": "lerna run test"
@@ -25,10 +26,11 @@
     "node-ffmpeg": "*"
   },
   "devDependencies": {
+    "@electron/osx-sign": "^1.0.1",
     "asar": "^3.1.0",
     "dotenv": "^16.0.0",
     "electron": "17.4.0",
-    "electron-builder": "^23.0.3",
+    "electron-builder": "^23.1.0",
     "electron-notarize": "^1.2.1",
     "eslint": "^8.17.0",
     "ts-loader": "^9.3.0",

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+cp ./io.github.chend0316.videotools.daemon.plist /Library/LaunchDaemons/io.github.chend0316.videotools.daemon.plist
+
+launchctl load /Library/LaunchDaemons/io.github.chend0316.videotools.daemon.plist
+ret=$?
+echo "start daemon ret = $ret"
+
+sleep 3
+
+open /Applications/videotools.app --args open-by-installer
+
+exit 0

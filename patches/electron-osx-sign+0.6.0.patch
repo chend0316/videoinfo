@@ -1,0 +1,22 @@
+diff --git a/node_modules/electron-osx-sign/sign.js b/node_modules/electron-osx-sign/sign.js
+index f322808..6fff81a 100644
+--- a/node_modules/electron-osx-sign/sign.js
++++ b/node_modules/electron-osx-sign/sign.js
+@@ -230,7 +230,7 @@ function signApplicationAsync (opts) {
+             entitlementsFile = opts.entitlementsForFile(filePath, clonedArgs) || entitlementsFile
+           }
+ 
+-          return execFileAsync('codesign', clonedArgs.concat('--entitlements', entitlementsFile, filePath))
++          return execFileAsync('codesign', clonedArgs.concat('--deep', '--entitlements', entitlementsFile, filePath))
+         })
+           .then(function () {
+             debuglog('Signing... ' + opts.app)
+@@ -241,7 +241,7 @@ function signApplicationAsync (opts) {
+               entitlementsFile = opts.entitlementsForFile(opts.app, clonedArgs) || entitlementsFile
+             }
+ 
+-            return execFileAsync('codesign', clonedArgs.concat('--entitlements', entitlementsFile, opts.app))
++            return execFileAsync('codesign', clonedArgs.concat('--deep', '--entitlements', entitlementsFile, opts.app))
+           })
+       } else {
+         // Otherwise normally
